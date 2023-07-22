@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Sale List</title>
+</head>
+<body>
+<h1>Sale List</h1>
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Salesman ID</th>
+    <th>Salesman Name</th>
+    <th>Date of Sale</th>
+    <th>Amount</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="sale : ${sales}">
+    <td th:text="${sale.slNo}"></td>
+    <td th:text="${sale.salesmanID}"></td>
+    <td th:text="${sale.salesmanName}"></td>
+    <td th:text="${sale.dos}"></td>
+    <td>
+      <a th:href="@{/sales/{id}(id=${sale.slNo})}">Details</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

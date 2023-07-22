@@ -1,22 +1,26 @@
 package com.example.leduyduoc_examp.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 @Data
 @Table(name = "Sale")
-public class Sale {
+public class Sale implements Serializable {
+
     @Id
     private int slNo;
-
     private int salesmanID;
 
-    private int prodID;
+    @ManyToOne
+    @JoinColumn(name = "ProdID")
+    @JsonIgnore
+    private Product product;
 
     private String salesmanName;
-
-    private LocalDate dos;
+    private Date dos;
 
 }

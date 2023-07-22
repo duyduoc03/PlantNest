@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Details</title>
+</head>
+<body>
+<h1>Product Details</h1>
+<table>
+    <tr>
+        <td>ID:</td>
+        <td th:text="${product.prodID}"></td>
+    </tr>
+    <tr>
+        <td>Name:</td>
+        <td th:text="${product.prodName}"></td>
+    </tr>
+    <tr>
+        <td>Description:</td>
+        <td th:text="${product.description}"></td>
+    </tr>
+    <tr>
+        <td>Date of Manufacture:</td>
+        <td th:text="${product.dateOfManf}"></td>
+    </tr>
+    <tr>
+        <td>Price:</td>
+        <td th:text="${product.price}"></td>
+    </tr>
+</table>
+<h2>Sales for this Product:</h2>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Salesman ID</th>
+        <th>Salesman Name</th>
+        <th>Date of Sale</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="sale : ${product.sales}">
+        <td th:text="${sale.slNo}"></td>
+        <td th:text="${sale.salesmanID}"></td>
+        <td th:text="${sale.salesmanName}"></td>
+        <td th:text="${sale.dos}"></td>
+    </tr>
+    </tbody>
+</table>
+<a th:href="@{/products}">Back to Product List</a>
+
+</body>
+</html>
