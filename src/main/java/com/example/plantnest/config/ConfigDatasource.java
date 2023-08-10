@@ -1,4 +1,4 @@
-package com.example.leduyduoc_examp.config;
+package com.example.plantnest.config;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ import java.util.Map;
 
 @Configuration
 @RequiredArgsConstructor
-@EnableJpaRepositories(basePackages = "com.example.leduyduoc_examp.repository",
+@EnableJpaRepositories(basePackages = "com.example.plantnest.repository",
         entityManagerFactoryRef = "ConfigEntityManager",
         transactionManagerRef = "ConfigTransactionManager")
 public class ConfigDatasource {
@@ -41,12 +41,11 @@ public class ConfigDatasource {
     public LocalContainerEntityManagerFactoryBean customerEntityManger() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(customerDataSource());
-        em.setPackagesToScan(new String[]{"com.example.leduyduoc_examp.entity"});
+        em.setPackagesToScan(new String[]{"com.example.plantnest.entity"});
         HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(adapter);
         Map<String, Object> properties = new HashMap<>();
         properties.put("hibernate.dialect", config.getCustomerDialect());
-//        properties.put("hibernate.show-sql", config.getCustomerShowSql());
         em.setJpaPropertyMap(properties);
         return em;
     }

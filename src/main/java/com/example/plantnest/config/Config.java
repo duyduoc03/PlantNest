@@ -1,4 +1,4 @@
-package com.example.leduyduoc_examp.config;
+package com.example.plantnest.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
